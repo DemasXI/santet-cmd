@@ -1,0 +1,16 @@
+//build by demasxi
+
+CMD:kill(playerid, params[])
+{
+          if(sscanf(params, "d", params[0]))                      return SCM(playerid, -1, "Gunakan: /kill [playerid]");
+if(!IsPlayerConnected(params[0])) return SCM(playerid, -1, "Pemain offline");
+if(afk_time[params [0]] > 2) return SCM(playerid, -1, "Pemain ini afk");
+if(PlayerInfo[playerid][pLogin] == 0) return SCM(playerid, -1, "Pemain ini belum login");
+
+SetPlayerHealth(params[0], 0);
+
+return 1;
+}
+
+
+//dont sell
